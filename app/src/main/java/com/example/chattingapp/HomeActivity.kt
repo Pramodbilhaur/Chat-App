@@ -40,8 +40,8 @@ class HomeActivity : AppCompatActivity() {
                 userList.clear()
                 for(postSnapshot in snapshot.children){
                     val currentUser = postSnapshot.getValue(SaveUser::class.java)
-                    if (currentUser != null) {
-                        userList.add(currentUser)
+                    if(mAuth.currentUser?.uid != currentUser?.uid && currentUser != null){
+                            userList.add(currentUser)
                     }
                 }
                 Log.d("User List", "onDataChange: $userList")
