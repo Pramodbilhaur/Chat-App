@@ -2,6 +2,7 @@ package com.example.chattingapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.StrictMode
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -16,6 +17,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessaging
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -35,6 +37,11 @@ class HomeActivity : AppCompatActivity() {
         userAdapter = UserAdapter(this@HomeActivity, userList)
         binding.rvUserList.adapter = userAdapter
 
+        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
+
+
+
         mdbRef.child("user").addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 userList.clear()
@@ -46,10 +53,9 @@ class HomeActivity : AppCompatActivity() {
                 }
                 Log.d("User List", "onDataChange: $userList")
                 userAdapter.notifyDataSetChanged()
-
             }
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+
             }
         })
     }

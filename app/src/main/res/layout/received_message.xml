@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/receivedMessage"
-            android:background="@drawable/chat_message_background"
+
             android:text="This is a received message"
             android:textSize="18sp"
             android:padding="7dp"
@@ -21,7 +21,7 @@
             android:layout_margin="3dp"
             android:layout_alignParentLeft="true"
             />
-
+<!--        android:background="@drawable/chat_message_background"-->
 
 
     </RelativeLayout>

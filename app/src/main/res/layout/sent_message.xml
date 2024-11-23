@@ -13,7 +13,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/sentMessage"
-            android:background="@drawable/chat_message_background"
+            android:background="#34EBE8E8"
             android:text="This is a sent message"
             android:textSize="18sp"
             android:padding="7dp"
@@ -22,7 +22,7 @@
             android:layout_alignParentRight="true"
             />
 
-
+<!--        android:background="@drawable/chat_message_background"-->
 
     </RelativeLayout>
 
